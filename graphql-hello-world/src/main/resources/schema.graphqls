@@ -1,0 +1,14 @@
+schema {
+    query: Queries
+}
+
+type Queries {
+    users: [User]
+}
+
+type User {
+    id: Int!
+    name: String
+    email: String
+    active: Boolean
+}
