@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+    <h1>GraphQL Test Call</h1>
+
+    <table id="tblUser">
+    </table>
+
+    <script>
+        let url = "/graphql";
+        let graphql = `
+            {
+              users {
+                name
+                email
+              }
+            }`;
+        let body = {
+            query: graphql,
+            variables: {}
+        }
+        let options = {
+            method: "POST",
+            headers: {
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify(body)
+        }
+
+        fetch(url, options)
+            .then(data => data.json())
+            .then(result => {
+                console.log(result);
+
+                let table = document.getElementById("tblUser");
+                result.data.users.forEach(user=>{
+
+                    let row = table.insertRow();
+                    row.innerHTML = `
+                        <td>${ user.name }</td>
+                        <td>${ user.email }</td>`
+
+                })
+            });
+    </script>
+</body>
+</html>
