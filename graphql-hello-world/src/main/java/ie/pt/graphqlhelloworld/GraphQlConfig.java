@@ -49,7 +49,7 @@ public class GraphQlConfig {
         // that will handle those queries (Resolvers)
         RuntimeWiring wiring = RuntimeWiring.newRuntimeWiring()
                 .type("Queries", builder ->
-                    builder.dataFetcher("users", userResolver))
+                        builder.dataFetcher("users", userResolver))
                 .build();
 
         // return the schema

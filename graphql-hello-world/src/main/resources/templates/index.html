@@ -9,46 +9,46 @@
 
 </head>
 <body>
-    <h1>GraphQL Test Call</h1>
+<h1>GraphQL Test Call</h1>
 
-    <table id="tblUser">
-    </table>
+<table id="tblUser">
+</table>
 
-    <script>
-        let url = "/graphql";
-        let graphql = `
+<script>
+    let url = "/graphql";
+    let graphql = `
             {
               users {
                 name
                 email
               }
             }`;
-        let body = {
-            query: graphql,
-            variables: {}
-        }
-        let options = {
-            method: "POST",
-            headers: {
-                "Content-Type":"application/json"
-            },
-            body: JSON.stringify(body)
-        }
+    let body = {
+        query: graphql,
+        variables: {}
+    }
+    let options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(body)
+    }
 
-        fetch(url, options)
-            .then(data => data.json())
-            .then(result => {
-                console.log(result);
+    fetch(url, options)
+        .then(data => data.json())
+        .then(result => {
+            console.log(result);
 
-                let table = document.getElementById("tblUser");
-                result.data.users.forEach(user=>{
+            let table = document.getElementById("tblUser");
+            result.data.users.forEach(user => {
 
-                    let row = table.insertRow();
-                    row.innerHTML = `
-                        <td>${ user.name }</td>
-                        <td>${ user.email }</td>`
-                })
-            });
-    </script>
+                let row = table.insertRow();
+                row.innerHTML = `
+                        <td>${user.name}</td>
+                        <td>${user.email}</td>`
+            })
+        });
+</script>
 </body>
 </html>

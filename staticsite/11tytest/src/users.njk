@@ -1,0 +1,38 @@
+---
+layout: base
+permalink: users.html
+title: Users
+tags: main
+---
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Active</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in usersApi.users %}
+
+        <tr>
+            <td><a href="/users/{{user.id}}/">{{ user.id }}</a></td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.active }}</td>
+        </tr>
+    
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+---
+pagination:
+    data: usersApi.users
+    size: 1
+    alias: user
+layout: base
+permalink: "users/{{user.id}}/"
+---
+
+<h2>{{ user.name }}</h1>
+
+
+<h3>{{ user.email }}</h3>
+
+
+<h4>{{ user.active}}</h4>
